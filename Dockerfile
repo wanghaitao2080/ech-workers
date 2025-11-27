@@ -7,7 +7,6 @@ COPY start.sh ./
 EXPOSE 3000
 
 RUN apk update && apk add --no-cache bash openssl curl &&\
-    chmod +x index.js &&\
-    npm install
+    chmod +x start.sh
 
-CMD ["bash", "start.sh"]
+CMD ["./start.sh"]
