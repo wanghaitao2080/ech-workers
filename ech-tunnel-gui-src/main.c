@@ -1,5 +1,3 @@
-#pragma comment(linker,"\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
-
 #include <windows.h>
 #include <commctrl.h>
 #include <shellapi.h>
@@ -452,7 +450,7 @@ void CreateControls(HWND hwnd) {
     // 5. 指定IP 和 DNS
     CreateLabelAndEdit(hwnd, "指定IP:", margin + Scale(15), innerY, halfW, editH, ID_IP_EDIT, &hIpEdit, FALSE);
     // 修复: 使用 col2X 确保对齐且不溢出
-    CreateLabelAndEdit(hwnd, "DNS服务器:", col2X, innerY, halfW, editH, ID_DNS_EDIT, &hDnsEdit, FALSE);
+    CreateLabelAndEdit(hwnd, "DOH服务器:", col2X, innerY, halfW, editH, ID_DNS_EDIT, &hDnsEdit, FALSE);
     innerY += lineHeight + lineGap;
 
     // 6. ECH
@@ -550,7 +548,7 @@ void StartProcess() {
     APPEND_ARG("-token", currentConfig.token);
     APPEND_ARG("-ip", currentConfig.ip);
     
-    if (strlen(currentConfig.dns) > 0 && strcmp(currentConfig.dns, "119.29.29.29:53") != 0) {
+    if (strlen(currentConfig.dns) > 0 && strcmp(currentConfig.dns, "dns.alidns.com/dns-query") != 0) {
         APPEND_ARG("-dns", currentConfig.dns);
     }
     if (strlen(currentConfig.ech) > 0 && strcmp(currentConfig.ech, "cloudflare-ech.com") != 0) {
