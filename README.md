@@ -22,7 +22,9 @@ Usage:\
 
 # ECH-Tunnel-Go  
 
-#### （中转群大神作品，本仓库仅做收藏，有问题去问作者）
+#### 一键部署
+
+curl -s https://www.baipiao.eu.org/ech/onekey-ech.sh -o onekey-ech.sh && chmod +x onekey-ech.sh && ./onekey-ech.sh
 
 单二进制、全平台、纯 Go 实现的多协议加密正向代理
 
